@@ -16,3 +16,33 @@ img {
   display: block;
   max-width: 100%;
 }
+
+#datetime-picker{
+  margin-left: 20px;
+  font-size: 14px;
+  width: 200px;
+}
+#datetime-picker,
+button {
+  padding: 5px;
+  border-radius: 3px;
+  border: 1px solid #000000;
+}
+
+.timer {
+  display: flex;
+  margin: 20px;
+}
+.field {
+  margin-right: 15px;
+}
+.value {
+  display: block;
+  text-align: center;
+  font-size: 24px;
+}
+
+.label {
+  display: block;
+  font-weight: 500;
+}
