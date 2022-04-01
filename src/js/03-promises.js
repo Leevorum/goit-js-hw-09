@@ -16,18 +16,23 @@ function createPromise(position, delay) {
   });
 }
 //Функция для разблокировки кнопки после выполнения всех промисов
-function createBtnDisabler(delayPromise) {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      if (delayPromise) {
-        resolve((createPromiseBtn.disabled = false));
-      } else {
-        reject((createPromiseBtn.disabled = true));
-      }
-    }, delayPromise);
-  });
-}
+// function createBtnDisabler(delayPromise) {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       if (delayPromise) {
+//         resolve((createPromiseBtn.disabled = false));
+//       } else {
+//         reject((createPromiseBtn.disabled = true));
+//       }
+//     }, delayPromise);
+//   });
+// }
 
+function disablerTimer(delayPromise) {
+  setTimeout(() => {
+    createPromiseBtn.disabled = false;
+  }, delayPromise);
+}
 // Функция сабмита по форме
 const handleFormSubmit = e => {
   e.preventDefault();
@@ -54,7 +59,8 @@ const handleFormSubmit = e => {
   }
   console.log(delayPromise);
   //Вызываем функцию разблокирования кнопки после цикла
-  createBtnDisabler(delayPromise);
+  // createBtnDisabler(delayPromise);
+  disablerTimer(delayPromise);
 };
 // Слушатель на форме по сабмиту
 formElem.addEventListener('submit', handleFormSubmit);
